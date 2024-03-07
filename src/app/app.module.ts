@@ -8,13 +8,15 @@ import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { StudentlistComponent } from './studentlist/studentlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    StudentlistComponent
   ],
   imports: [
     BrowserModule,

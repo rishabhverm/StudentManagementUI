@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
+  
   styleUrl: './signup.component.scss'
 })
 export class SignupComponent  implements OnInit {
@@ -17,10 +18,10 @@ export class SignupComponent  implements OnInit {
  ngOnInit():void{
   this.loginForm =this.fb.group({
     username:['',Validators.required],
-    //password:['',Validators.required],
+    password:['',Validators.required],
     email:['',Validators.required],
     firstname:['',Validators.required],
-  //  lastname:['',Validators.required]
+   lastname:['',Validators.required]
   })
  }
  hideshowpass(){
@@ -44,18 +45,18 @@ this.isText?this.type="text":this.type="password";
     alert("Successfully Register")
   }
   else{
-//  this.validateAllFormFileds(this.loginForm)
+ this.validateAllFormFileds(this.loginForm)
     alert("Your Form is invalid ")
   }
  }
-//  private validateAllFormFileds(formGroup:FormGroup){
-//   Object.keys(formGroup.controls).forEach(field=>{
-//     const control = formGroup.get(field);
-//   if(control instanceof FormControl){
-//     control.markAsDirty({onlySelf:true});
-//   }else if(control instanceof FormGroup){
-//     this.validateAllFormFileds(control)
-//   }
-// })
-//  }
+ private validateAllFormFileds(formGroup:FormGroup){
+  Object.keys(formGroup.controls).forEach(field=>{
+    const control = formGroup.get(field);
+  if(control instanceof FormControl){
+    control.markAsDirty({onlySelf:true});
+  }else if(control instanceof FormGroup){
+    this.validateAllFormFileds(control)
+  }
+})
+  }
 }

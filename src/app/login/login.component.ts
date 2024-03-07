@@ -30,16 +30,18 @@ this.isText?this.type="text":this.type="password";
  onLogin(){
   if(this.loginForm.valid){
     console.log(this.loginForm.value)
-    alert("Successfully login")
+    
     this.auth.login(this.loginForm.value)
     .subscribe({
       next:(res)=>{
-        alert(res.message)
+       // alert(res.message)
+      // this.loginForm.reset();
+
+        this.router.navigate(['welcome'])
       },
       error:(err)=>{
         alert(err?.error.message)
-        this.loginForm.reset();
-        this.router.navigate(['welcome'])
+       
       }
     })
   }
